@@ -6,7 +6,7 @@
 
 ## clicar com o botão direito e colocar no git bash:
 
-''' git clone https://github.com/JulioVianaDev/spotify-clone.git '''
+``` git clone https://github.com/JulioVianaDev/spotify-clone.git ```
 
 ## vamos lá no projeto para poder instalar o clone do spotify para editar você precisa de dois cmd vou colocar o passo a passo de cada um
 

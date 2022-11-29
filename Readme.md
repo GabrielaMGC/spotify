@@ -12,16 +12,16 @@
 
 # PRIMEIRO CMD 
 
-''' cd server '''
+*** cd server ***  
 
-''' npm install '''
+*** npm install ***
 
-''' npm start '''
+*** npm start ***
 
 # SEGUNDO CMD 
 
-''' cd client '''
+*** cd client ***
 
-''' npm install '''
+*** npm install ***
 
-''' npm start '''
+*** npm start ***

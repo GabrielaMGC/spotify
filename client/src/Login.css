@@ -1,0 +1,17 @@
+.fundo{
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(255, 255, 255), black);
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.botao{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundo2{
+    background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(17, 149, 0));
+}

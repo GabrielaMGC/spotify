@@ -5,6 +5,7 @@ import TrackSearchResult from "./TrackSearchResult"
 import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
+import "./Track.css"
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "8b945ef10ea24755b83ac50cede405a0",
@@ -16,6 +17,11 @@ export default function Dashboard({ code }) {
   const [searchResults, setSearchResults] = useState([])
   const [playingTrack, setPlayingTrack] = useState()
   const [lyrics, setLyrics] = useState("")
+  const [clique, setClique] = useState(false)
+  
+  function SalvarClique(Clique){
+    console.log(Clique)
+  }
 
   function chooseTrack(track) {
     setPlayingTrack(track)
@@ -74,30 +80,32 @@ export default function Dashboard({ code }) {
   }, [search, accessToken])
 
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+    <div className={` py-2 ${clique===false?"fundo2":"fundo3"}`} style={{ height: "100vh" }}>
       <Form.Control
         type="search"
         placeholder="Search Songs/Artists"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
-      <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
+      <div className="lista" style={{ overflowY: "auto" }}>
         {searchResults.map(track => (
           <TrackSearchResult
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
+            EnvioEstado={SalvarClique}
+            setClicado = {setClique}
           />
         ))}
         {searchResults.length === 0 && (
-          <div className="text-center" style={{ whiteSpace: "pre" }}>
+          <div className="letras" style={{ whiteSpace: "pre" }}>
             {lyrics}
           </div>
         )}
       </div>
-      <div>
-        <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+      <div className="rodape">
+        <Player  accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
-    </Container>
+    </div>
   )
 }

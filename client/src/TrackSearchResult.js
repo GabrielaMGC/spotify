@@ -1,20 +1,30 @@
 import React from "react"
+import "./Track.css"
+import { useEffect, useState } from "react"
 
-export default function TrackSearchResult({ track, chooseTrack }) {
+export default function TrackSearchResult(props) {
   function handlePlay() {
-    chooseTrack(track)
+     props.setClicado(true)
+    props.chooseTrack(props.track)
   }
+
+  
+  useEffect(()=>{
+    props.EnvioEstado(true)
+  }) 
 
   return (
     <div
-      className="d-flex m-2 align-items-center"
+      className=" formato"
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
     >
-      <img src={track.albumUrl} style={{ height: "64px", width: "64px" }} />
-      <div className="ml-3">
-        <div>{track.title}</div>
-        <div className="text-muted">{track.artist}</div>
+      <div className="esquerda">
+       <img src={props.track.albumUrl} style={{ height: "75px", width: "75px" }} /> 
+      </div>
+      <div className="direita">
+        <div className="musica">{props.track.title}</div>
+        <div className="cantor">{props.track.artist}</div>
       </div>
     </div>
   )
